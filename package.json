@@ -15,6 +15,7 @@
     "jsx-async-runtime": "^0.5.1"
   },
   "devDependencies": {
+    "prettier": "^3.3.3",
     "tsx": "^4.19.1"
   }
 }
