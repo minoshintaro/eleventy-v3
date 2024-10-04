@@ -1,7 +1,6 @@
 {
   "name": "eleventy-v3",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "dev": "tsx node_modules/@11ty/eleventy/cmd.cjs --config=eleventy.config.ts --serve --incremental",
     "build": "tsx node_modules/@11ty/eleventy/cmd.cjs --config=eleventy.config.ts"

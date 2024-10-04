@@ -14,7 +14,7 @@ export default function (eleventyConfig: any) {
 
   return {
     dir: {
-      input: "src",
+      input: "src/pages",
       output: "dist",
     },
   };
