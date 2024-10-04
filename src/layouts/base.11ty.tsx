@@ -1,9 +1,10 @@
 interface Prop {
   title: string;
-  content: JSX.Element;
+  children?: JSX.Children;
+  content?: string;
 }
 
-export const render = ({ title, content }: Prop): JSX.Element => (
+export const Base = ({ title, children, content }: Prop): JSX.Element => (
   <html lang="ja">
     <head>
       <meta charset="UTF-8" />
@@ -11,7 +12,9 @@ export const render = ({ title, content }: Prop): JSX.Element => (
       <title>{title}</title>
     </head>
     <body>
-      {content}
+      {children || content}
     </body>
   </html>
 );
+
+export const render = Base;
