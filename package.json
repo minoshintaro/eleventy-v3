@@ -1,0 +1,20 @@
+{
+  "name": "eleventy-v3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsx node_modules/@11ty/eleventy/cmd.cjs --config=eleventy.config.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "jsx-async-runtime": "^0.5.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.1"
+  }
+}
