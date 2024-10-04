@@ -1,6 +1,6 @@
 interface Prop {
   title: string;
-  content: string;
+  content: JSX.Element;
 }
 
 export const render = ({ title, content }: Prop): JSX.Element => (
