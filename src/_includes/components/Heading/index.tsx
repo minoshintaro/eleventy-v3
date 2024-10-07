@@ -12,7 +12,7 @@ export default function Heading({ as, text, subText, className, id }: Props): JS
   const HeadingTag = createElement(as, { className, id }, text);
 
   return (
-    <div>
+    <div className="c-heading">
       {HeadingTag}
       {subText && <p>{subText}</p>}
     </div>
