@@ -1,10 +1,10 @@
-interface Prop {
+interface Props {
   title: string;
   content?: string;
   children?: JSX.Children;
 }
 
-export function Base({ title, content, children }: Prop): JSX.Element {
+function Base({ title, content, children }: Props): JSX.Element {
   return (
     <html lang="ja">
       <head>
@@ -14,10 +14,12 @@ export function Base({ title, content, children }: Prop): JSX.Element {
         <link rel="stylesheet" href="/assets/styles/index.css" />
       </head>
       <body>
-        {content || children}
+        {content ? content : children}
       </body>
     </html>
   );
 }
 
-export const render = Base;
+const render = Base;
+
+export { Base, render };

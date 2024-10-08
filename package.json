@@ -2,7 +2,7 @@
   "name": "eleventy-v3",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npx @11ty/eleventy --serve",
+    "dev": "npx @11ty/eleventy --serve --incremental",
     "reset": "rimraf ./dist",
     "css": "lightningcss --watch src/styles/style.css --out dist/styles"
   },
