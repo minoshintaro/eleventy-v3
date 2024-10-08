@@ -8,13 +8,15 @@ type Props = {
   id?: string;
 };
 
-export default function Heading({ as, text, subText, className, id }: Props): JSX.Element {
+function Heading({ as, text, subText, className, id }: Props): JSX.Element {
   const HeadingTag = createElement(as, { className, id }, text);
 
   return (
-    <div className="c-heading">
+    <div className="c-heading text-md">
       {HeadingTag}
       {subText && <p>{subText}</p>}
     </div>
   );
 }
+
+export { Heading };
