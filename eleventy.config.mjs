@@ -1,5 +1,5 @@
-import pluginSass from './.eleventy/eleventy-sass.mjs';
-import pluginTsx from './.eleventy/eleventy-tsx.mjs';
+import sassPlugin from './.eleventy/eleventy-sass.mjs';
+import tsxPlugin from './.eleventy/eleventy-tsx.mjs';
 import 'tsx/esm';
 
 export const config = {
@@ -18,6 +18,6 @@ export default function(eleventyConfig) {
   eleventyConfig.addTemplateFormats('scss');
   eleventyConfig.addTemplateFormats('11ty.ts,11ty.tsx');
 
-  eleventyConfig.addPlugin(pluginSass);
-  eleventyConfig.addPlugin(pluginTsx);
+  eleventyConfig.addPlugin(sassPlugin);
+  eleventyConfig.addPlugin(tsxPlugin);
 }
