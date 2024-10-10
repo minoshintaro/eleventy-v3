@@ -1,6 +1,6 @@
 import browserslist from 'browserslist';
-import pluginSass from './config/eleventy-sass.mjs';
-import pluginTsx from './config/eleventy-tsx.mjs';
+import pluginSass from './.eleventy/eleventy-sass.mjs';
+import pluginTsx from './.eleventy/eleventy-tsx.mjs';
 import 'tsx/esm';
 
 const targets = browserslist('> 0.2% and not dead');
