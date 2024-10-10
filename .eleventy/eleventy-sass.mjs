@@ -1,9 +1,12 @@
+import browserslist from 'browserslist';
 import path from 'path';
 import * as sass from 'sass'
 import { browserslistToTargets, transform } from 'lightningcss';
 
-export default function (eleventyConfig, targets) {
+export default function (eleventyConfig) {
 	// eleventyConfig.addTemplateFormats('scss');
+
+  const targets = browserslistToTargets(browserslist());
 
   eleventyConfig.addExtension('scss', {
     outputFileExtension: 'css',
@@ -24,7 +27,7 @@ export default function (eleventyConfig, targets) {
           code: Buffer.from(result.css),
           minify: false,
           sourceMap: false,
-          targets: browserslistToTargets(targets),
+          targets
         });
         return code;
       };

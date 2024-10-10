@@ -11,6 +11,10 @@
   "license": "ISC",
   "type": "module",
   "description": "",
+  "browserslist": [
+    "> 0.2%",
+    "not dead"
+  ],
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "jsx-async-runtime": "^0.5.2"

@@ -1,9 +1,6 @@
-import browserslist from 'browserslist';
 import pluginSass from './.eleventy/eleventy-sass.mjs';
 import pluginTsx from './.eleventy/eleventy-tsx.mjs';
 import 'tsx/esm';
-
-const targets = browserslist('> 0.2% and not dead');
 
 export const config = {
   dir: {
@@ -21,6 +18,6 @@ export default function(eleventyConfig) {
   eleventyConfig.addTemplateFormats('scss');
   eleventyConfig.addTemplateFormats('11ty.ts,11ty.tsx');
 
-  eleventyConfig.addPlugin(pluginSass, targets);
+  eleventyConfig.addPlugin(pluginSass);
   eleventyConfig.addPlugin(pluginTsx);
 }
