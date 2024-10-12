@@ -10,8 +10,6 @@ export const config = {
 };
 
 export default function(eleventyConfig) {
-
-
   eleventyConfig.setServerOptions({
     watch: ['src/**/*.{ts,tsx,scss}'],
   });
