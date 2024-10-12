@@ -1,15 +1,14 @@
 import prettier from 'prettier';
-import { jsxToString } from 'jsx-async-runtime';
+import { renderToStaticMarkup } from "react-dom/server";
 
 export default function (eleventyConfig) {
-  // eleventyConfig.addTemplateFormats('11ty.ts,11ty.tsx');
-
   eleventyConfig.addExtension(['11ty.ts', '11ty.tsx'], {
     key: '11ty.js',
-    compile: function() {
+    compile(inputContent, inputPath) {
+      console.log('test:', inputPath, JSON.stringify(inputContent.render().props.children));
       return async function (data) {
-        const jsx = await this.defaultRenderer(data);
-        const html = await jsxToString(jsx);
+        const reactNode = await this.defaultRenderer(data);
+        const html = renderToStaticMarkup(reactNode);
         return prettier.format(`<!doctype html>\n${html}`, { parser: 'html' });
 			};
     },

@@ -1,26 +1,30 @@
 {
   "name": "eleventy-v3",
   "version": "1.0.0",
-  "scripts": {
-    "dev": "npx @11ty/eleventy --serve --incremental",
-    "reset": "rimraf ./dist",
-    "css": "lightningcss --watch src/styles/style.css --out dist/styles"
-  },
+  "license": "ISC",
+  "description": "",
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "type": "module",
-  "description": "",
+  "scripts": {
+    "dev": "run-s reset 11ty:dev",
+    "reset": "rimraf ./dist",
+    "11ty:dev": "npx @11ty/eleventy --serve --incremental"
+  },
+
   "browserslist": [
     "> 0.2%",
     "not dead"
   ],
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "jsx-async-runtime": "^0.5.2"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "^22.7.4",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
     "browserslist": "^4.24.0",
     "lightningcss": "^1.27.0",
     "npm-run-all": "^4.1.5",

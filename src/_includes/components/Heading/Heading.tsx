@@ -1,4 +1,4 @@
-import { createElement } from 'jsx-async-runtime';
+import React from 'react';
 
 type HeadingProps = {
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
@@ -8,15 +8,15 @@ type HeadingProps = {
   id?: string;
 };
 
-function Heading({ tag = 'p', text, subText, className, id }: HeadingProps): JSX.Element {
-  const HeadingTag = createElement(tag, { className, id }, text);
-
+const Heading: React.FC<HeadingProps> = ({ tag: Tag = 'p', text, subText, className, id }) => {
   return (
     <div className="c-heading">
-      {HeadingTag}
+      <Tag className={className} id={id}>
+        {text}
+      </Tag>
       {subText && <p>{subText}</p>}
     </div>
   );
-}
+};
 
 export { Heading, HeadingProps };
