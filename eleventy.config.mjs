@@ -5,13 +5,15 @@ export const config = {
   dir: {
     input: 'src',
     output: 'dist',
-    includes: '_includes',
+    includes: './_includes',
   }
 };
 
 export default function(eleventyConfig) {
   eleventyConfig.setServerOptions({
-    watch: ['src/**/*.{ts,tsx,scss}'],
+    liveReload: true,
+    domDiff: false,
+    watch: ['src/**/*.{ts,tsx,scss}', '_includes/**/*.{ts,tsx}'],
   });
 
   eleventyConfig.addTemplateFormats('11ty.ts,11ty.tsx');
