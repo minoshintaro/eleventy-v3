@@ -1,0 +1,12 @@
+.button {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: blue;
+}

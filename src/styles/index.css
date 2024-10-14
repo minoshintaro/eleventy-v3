@@ -1,0 +1,5 @@
+@import 'global.css';
+
+@media (480px <= width <= 768px) {
+  .foo { color: red }
+}
