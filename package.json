@@ -10,6 +10,7 @@
     "clear": "rimraf ./dist",
     "11ty": "run-s clear 11ty:dev",
     "11ty:dev": "npx @11ty/eleventy --serve --incremental",
+    "11ty:debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve --incremental",
     "storybook:dev": "storybook dev -p 6006",
     "storybook:build": "storybook build"
   },
