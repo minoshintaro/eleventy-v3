@@ -1,22 +1,23 @@
-import { createElement } from 'jsx-async-runtime';
+import React from 'react';
 
-type Props = {
-  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type HeadingProps = {
+  // tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+  lv: '1' | '2' | '3' | '4' | '5' | '6';
   text: string;
-  subText?: string;
   className?: string;
   id?: string;
+  children?: React.ReactNode;
 };
 
-function Heading({ as, text, subText, className, id }: Props): JSX.Element {
-  const HeadingTag = createElement(as, { className, id }, text);
+export function Heading({ lv, text, className, id, children }: HeadingProps): React.ReactElement {
+  const Tag = `h${lv}` as keyof JSX.IntrinsicElements;
 
   return (
-    <div className="c-heading text-md">
-      {HeadingTag}
-      {subText && <p>{subText}</p>}
+    <div className="c-heading">
+      <Tag className={className} id={id}>
+        {text}
+      </Tag>
+      {children}
     </div>
   );
 }
-
-export { Heading };

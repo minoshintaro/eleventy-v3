@@ -1,13 +1,18 @@
+import React from 'react';
 import { Base } from "./_includes/layouts/Base.11ty";
-import { Heading } from "./_includes/components/Heading";
+import { Heading } from "./_includes/components/Heading/Heading";
+import { Button } from "./_includes/components/Button";
 
-const title = 'Test page';
+const title = 'Lorem';
 
-export const render = (): JSX.Element => (
-  <Base title={title}>
-    <Heading as="h1" text="Hello, New World!" />
-    <Heading as="h2" text="This is it" />
-    <p>Lorem :-)</p>
-    <a href="blog/index.html">Blog →</a>
-  </Base>
-);
+export function render(): React.ReactElement {
+  return (
+    <Base title={title}>
+      <Heading lv="1" text="Hello, world!">
+        <span role="img" aria-label="wave">👋👋👋</span>
+      </Heading>
+      <p>Lorem ipsum :-)</p>
+      <Button tag="a" text="Blogs" icon="suffix" size="medium" />
+    </Base>
+  );
+}

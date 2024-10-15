@@ -1,25 +1,30 @@
-interface Props {
-  title: string;
-  content?: string;
-  children?: JSX.Children;
-}
+import React from "react";
 
-function Base({ title, content, children }: Props): JSX.Element {
+export type BaseProps = {
+  title: string;
+  children: React.ReactNode;
+};
+
+export function Base({ title, children }: BaseProps): React.ReactElement {
   return (
     <html lang="ja">
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
-        <link rel="stylesheet" href="/assets/styles/index.css" />
+        <link rel="stylesheet" href="/styles/index.css" />
       </head>
       <body>
-        {content ? content : children}
+        {children}
       </body>
     </html>
   );
 }
 
-const render = Base;
-
-export { Base, render };
+export function render(data: any): React.ReactElement {
+  return (
+    <Base title={data?.title}>
+      <div dangerouslySetInnerHTML={{ __html: data?.content }} />
+    </Base>
+  );
+}

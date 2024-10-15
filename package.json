@@ -1,28 +1,51 @@
 {
+  "private": true,
   "name": "eleventy-v3",
   "version": "1.0.0",
-  "scripts": {
-    "dev": "npx @11ty/eleventy --serve --incremental",
-    "reset": "rimraf ./dist",
-    "css": "lightningcss --watch src/styles/style.css --out dist/styles"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
   "description": "",
+  "author": "",
+  "type": "module",
+  "scripts": {
+    "dev": "run-s clear && run-p 11ty:dev storybook:dev",
+    "clear": "rimraf ./dist",
+    "11ty": "run-s clear 11ty:dev",
+    "11ty:dev": "npx @11ty/eleventy --serve --incremental",
+    "11ty:debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve --incremental",
+    "storybook:dev": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
+  },
+  "browserslist": [
+    "> 0.2%",
+    "not dead"
+  ],
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "jsx-async-runtime": "^0.5.2"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@11ty/eleventy-plugin-vite": "^5.0.0-alpha.5",
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-essentials": "^8.3.5",
+    "@storybook/addon-interactions": "^8.3.5",
+    "@storybook/addon-links": "^8.3.5",
+    "@storybook/addon-onboarding": "^8.3.5",
+    "@storybook/blocks": "^8.3.5",
+    "@storybook/react": "^8.3.5",
+    "@storybook/react-vite": "^8.3.5",
+    "@storybook/test": "^8.3.5",
     "@types/node": "^22.7.4",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
     "browserslist": "^4.24.0",
     "lightningcss": "^1.27.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.3.3",
+    "prop-types": "^15.8.1",
     "rimraf": "^6.0.1",
     "sass": "^1.79.4",
-    "tsx": "^4.19.1"
+    "storybook": "^8.3.5",
+    "tsx": "^4.19.1",
+    "vite": "^5.4.8"
   }
 }

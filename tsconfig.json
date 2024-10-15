@@ -6,8 +6,10 @@
     "outDir": "dist",
     "strict": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "jsx-async-runtime",
-    "types": ["node"]
+    "jsxImportSource": "react",
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"],
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

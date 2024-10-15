@@ -1,9 +1,7 @@
+import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
 import browserslist from 'browserslist';
-import pluginSass from './config/eleventy-sass.mjs';
-import pluginTsx from './config/eleventy-tsx.mjs';
-import 'tsx/esm';
-
-const targets = browserslist('> 0.2% and not dead');
+import { browserslistToTargets } from 'lightningcss';
+import { compileCss, compileTsx } from './.eleventy/index.mjs';
 
 export const config = {
   dir: {
@@ -13,14 +11,48 @@ export const config = {
   }
 };
 
+const viteOptions = {
+  css: {
+    modules: {
+      scopeBehaviour: 'local', // グローバルではなくローカルスコープに設定
+      generateScopedName: '[name]__[local]___[hash:base64:5]', // クラス名の生成ルール
+    },
+  },
+  // css: {
+  //   transformer: 'lightningcss',
+  //   lightningcss: {
+	// 		targets: browserslistToTargets(browserslist()),
+	// 		drafts: {
+	// 			customMedia: true,
+	// 		},
+	// 		cssModules: {
+	// 			pattern: '[hash]_[local]',
+	// 		},
+  //   },
+  // },
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+  //       assetFileNames: 'assets/[name].[hash].[ext]',  // CSSやJSなどのアセットの出力パスを定義
+  //     },
+  //   },
+  // },
+};
+
 export default function(eleventyConfig) {
   eleventyConfig.setServerOptions({
-    watch: ['src/**/*.{ts,tsx,scss}'],
+    liveReload: true,
+    domDiff: false,
+    watch: ['src/**/*.{ts,tsx,css,scss}'],
   });
 
-  eleventyConfig.addTemplateFormats('scss');
-  eleventyConfig.addTemplateFormats('11ty.ts,11ty.tsx');
+  eleventyConfig.addPlugin(EleventyVitePlugin, viteOptions);
 
-  eleventyConfig.addPlugin(pluginSass, targets);
-  eleventyConfig.addPlugin(pluginTsx);
+  eleventyConfig.addTemplateFormats('11ty.ts,11ty.tsx');
+  eleventyConfig.addPlugin(compileTsx);
+
+  eleventyConfig.addTemplateFormats('css');
+  eleventyConfig.addPlugin(compileCss);
+
+  // console.log('=>', eleventyConfig);
 }
